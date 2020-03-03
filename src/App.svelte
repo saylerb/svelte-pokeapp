@@ -1,19 +1,22 @@
 <script>
-  import { onMount, log } from "svelte";
+  import { onMount } from "svelte";
+  import Modal from "svelte-simple-modal";
   import Card from "./Card.svelte";
   import { getPokemons } from "./api.js";
+  import _ from "lodash";
 
   let pokemons = [];
 
   onMount(async function() {
     pokemons = await getPokemons();
+    pokemons = _.orderBy(pokemons, ["price"], ["desc"]);
   });
 </script>
 
 <style>
   main {
     padding: 1em;
-    max-width: 240px;
+    font-family: "Comic Sans";
     margin: 0 auto;
   }
 
@@ -25,10 +28,11 @@
   }
 </style>
 
-<main>
-  <h1>Pokemon</h1>
-  {#each pokemons as pokemon}
-    {log(pokemon)}
-    <Card {...pokemon} />
-  {/each}
-</main>
+<Modal>
+  <main>
+    <h1>Pokemon</h1>
+    {#each pokemons as pokemon}
+      <Card {pokemon} />
+    {/each}
+  </main>
+</Modal>

@@ -21,8 +21,10 @@
   },
   "dependencies": {
     "@testing-library/svelte": "^1.11.0",
+    "lodash": "^4.17.15",
     "sirv-cli": "^0.4.4",
-    "svelte-jester": "^1.0.3"
+    "svelte-jester": "^1.0.3",
+    "svelte-simple-modal": "^0.3.0"
   },
   "jest": {
     "transform": {

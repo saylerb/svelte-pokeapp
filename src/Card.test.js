@@ -7,20 +7,20 @@ const Card = require("./Card");
 test("shows proper pokemonm name", () => {
   const { getByTestId } = render(Card, {
     name: "Bulbasaur",
-    description: "Bulbasaur"
+    price: "Bulbasaur"
   });
 
   expect(getByTestId("banana")).toHaveTextContent("Name: Bulbasaur");
 });
 
-test("show the description", () => {
+test("show the price", () => {
   const { getByTestId } = render(Card, {
     name: "Bulbasaur",
-    description: "A pokemon description"
+    price: "$1,000,000"
   });
 
   expect(getByTestId("card-description")).toHaveTextContent(
-    "A pokemon description"
+    "$1,000,000"
   );
 });
 
